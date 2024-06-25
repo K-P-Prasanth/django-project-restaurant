@@ -1,0 +1,32 @@
+{% extends "restaurant/layout.html" %}
+{% block title %}
+    My Orders
+{% endblock %}
+{% block body %}
+
+<h1>Order Details</h1>
+<div id="myorder">
+    {% for order in orders %}
+    <h3>Order ID: {{order.id}}</h3>
+    <p>Customer Name : {{order.user.username}}</p>
+    <p>Total : {{order.total}}</p>
+    <h5>Items</h5>
+    <ul>
+        {% for item in order.items.all %}
+            {% if item.quantity %}
+            <li>Item Name : {{item.item.name}} | Item Price : {{item.item.price}} | Quantity : {{item.quantity}} | </li>
+            {% else %}
+            {% endif %}
+        {% endfor %}
+    </ul>
+    {% if order.total %}
+    <form action="{% url 'cancleorder' %}" method="post">
+        <input type="hidden" name="order_id" value="{{order.id}}">
+        <input type="submit" class="btn btn-danger" value="Cancle Order">
+    </form>
+    {% endif %}
+    {% endfor %}
+    
+    
+</div>
+{% endblock %}
