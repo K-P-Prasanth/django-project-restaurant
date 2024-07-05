@@ -18,7 +18,7 @@ urlpatterns = [
 
     # API's
     path("orders", views.orders, name="orders"),
-    path("orders/<int:user_id>", views.a_order, name="a_order"),
+    path("orders/<int:order_id>", views.a_order, name="a_order"),
 
     path("additem", views.add_item, name="additem"),
     

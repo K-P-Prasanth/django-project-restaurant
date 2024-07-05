@@ -12,48 +12,50 @@
 
 </head>
 <body class="p-4 text-warning">
-    <img src="{% static 'restaurant/img5.webp' %}" alt="" style="height: 100vh;width: 120vw;position: fixed;top: 0;left:-100px;z-index: -1;">
+    <img src="{% static 'restaurant/img5.webp' %}" alt="" style="height: 102%;width: 120%;position: fixed;top: 0;left:-100px;z-index: -1;">
     <ul class="nav d-flex justify-content-between ">
         <div style="display: none;" id="user">{{user.id}}</div>
         <li class="nav-item position-relative" style="top: -10px;">
-            <a class="nav-link display-3" style="color: orange;"  href="{% url 'index' %}">Restanrant</a>
+            <a class="nav-link display-4 display-sm-4" style="color: orange;"  href="{% url 'index' %}">Restanrant</a>
         </li>
-        <div class="align-self-center d-flex">
-            <li class="nav-item ">
-                <a class="nav-link text-light" href="{% url 'index' %}" id="allitems">All Items</a>
-            </li>
-        <li class="nav-item ">
-            <a class="nav-link text-light" id="menua" href="{% url 'menu' %}">Menu</a>
-        </li>
-        {% if user.is_superuser %}
-        <li class="nav-item">
-            <a class="nav-link text-light" href="{%url 'add'%}">Add Item</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link text-light" href="{% url 'allorders' %}">All Orders</a>
-        </li>
-        {% else %}
-        {% endif %}
         
-        {% if user.is_authenticated %}
-            <li class="nav-item">
-                <a class="nav-link text-light" href="{% url 'myorders' %}">My Orders</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-light" href="{% url 'index' %}"><strong>{{ user.username }}</strong></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link btn btn-outline-warning " href="{% url 'logout' %}">Log Out</a>
-            </li>
-        {% else %}
-            <li class="nav-item">
-                <a class="nav-link btn btn-outline-primary mr-1 "  href="{% url 'login' %}">Log In</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link btn btn-outline-success" href="{% url 'register' %}">Register</a>
-            </li>
-        {% endif %}
-    </div>
+        <div class="align-self-center d-flex " id="navbarNav">
+            
+            <li class="nav-item ">
+                    <a class="nav-link text-light" href="{% url 'index' %}" id="allitems">All Items</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link text-light" id="menua" href="{% url 'menu' %}">Menu</a>
+                </li>
+                {% if user.is_superuser %}
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="{%url 'add'%}">Add Item</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="{% url 'allorders' %}">All Orders</a>
+                </li>
+                {% else %}
+                {% endif %}
+    
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="{% url 'myorders' %}">My Orders</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="{% url 'index' %}"><strong>{{ user.username }}</strong></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-outline-warning " href="{% url 'logout' %}">Log Out</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link btn btn-outline-primary mr-1 " href="{% url 'login' %}">Log In</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-outline-success" href="{% url 'register' %}">Register</a>
+                </li>
+                {% endif %}
+        </div>
     </ul>
     <hr>
 

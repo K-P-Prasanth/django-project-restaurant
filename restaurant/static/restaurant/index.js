@@ -43,7 +43,7 @@ function allorder(){
 
                 let clearbutton = document.createElement('button');
                 clearbutton.type = "submit";
-                clearbutton.className = 'btn btn-outline-danger ml-2';
+                clearbutton.className = 'btn btn-outline-danger ml-2 p-2';
                 clearbutton.innerHTML = "Clear";
                 clearform.appendChild(clearbutton);
 

@@ -121,9 +121,8 @@ def orders(request):
 
 
 @csrf_exempt
-def a_order(request,user_id):
-    user = User.objects.get(pk=user_id)
-    all_orders = Order.objects.filter(user=user)
+def a_order(request,order_id):
+    all_orders = Order.objects.filter(pk=order_id)
     all_orders = all_orders.order_by("timestamp").all()
     if request.method == "GET":
         return JsonResponse([order.serialize() for order in all_orders], safe=False)
