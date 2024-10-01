@@ -20,13 +20,14 @@
         </li>
         
         <div class="align-self-center d-flex " id="navbarNav">
-            
-            <li class="nav-item ">
+            {% if user.is_authenticated %}
+                <li class="nav-item ">
                     <a class="nav-link text-light" href="{% url 'index' %}" id="allitems">All Items</a>
                 </li>
                 <li class="nav-item ">
                     <a class="nav-link text-light" id="menua" href="{% url 'menu' %}">Menu</a>
                 </li>
+            {% endif %}
                 {% if user.is_superuser %}
                 <li class="nav-item">
                     <a class="nav-link text-light" href="{%url 'add'%}">Add Item</a>
@@ -60,7 +61,7 @@
     <hr>
 
     {% block body %}
-
+    
     {% endblock %}
     
     
